@@ -1,13 +1,13 @@
 import { Button } from "antd";
 import DatePicker from "./DatePicker";
-import { Dayjs } from "dayjs";
+import dayjs from "dayjs";
 
 function MonthControl({
   firstDayOfMonth,
   setFirstDayOfMonth,
 }: {
-  firstDayOfMonth: Dayjs;
-  setFirstDayOfMonth: React.Dispatch<React.SetStateAction<Dayjs>>;
+  firstDayOfMonth: dayjs.Dayjs;
+  setFirstDayOfMonth: React.Dispatch<React.SetStateAction<dayjs.Dayjs>>;
 }) {
   return (
     <div className="flex">

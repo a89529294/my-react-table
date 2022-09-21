@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import ScrollContainer from "react-indiana-drag-scroll";
-import * as dayjs from "dayjs";
+import dayjs, { Dayjs } from "dayjs";
 import { useEffect, useState } from "react";
 import MonthControl from "./components/MonthControl";
 import { Button } from "antd";
@@ -32,6 +32,24 @@ function getDayOfWeek(date: dayjs.Dayjs, dateOfMonth: number) {
 function getRandNumOfRooms() {
   const length = Math.ceil(Math.random() * rcrns.length);
   return rcrns.slice(0, length);
+}
+
+function generateYearAndMonthStr(date: Dayjs) {
+  const map = [
+    "一月",
+    "二月",
+    "三月",
+    "四月",
+    "五月",
+    "六月",
+    "七月",
+    "八月",
+    "九月",
+    "十月",
+    "十一月",
+    "十二月",
+  ];
+  return map[date.month()] + " " + date.year();
 }
 
 function App() {
@@ -69,7 +87,7 @@ function App() {
         <ScrollContainer className="scroll-container col-start-2 row-start-1 row-end-[var(--number-of-rooms)] overflow-x-scroll overflow-y-hidden">
           <div className="w-[150%] grid grid-rows-[30px_30px] auto-rows-[80px] grid-cols-[repeat(var(--days-in-month),1fr)] bg-slate-300 gap-[1px]">
             <div className="flex justify-center items-center col-span-full bg-red-600 text-white">
-              九月 2022
+              {generateYearAndMonthStr(firstDayOfMonth)}
             </div>
             {new Array(daysInMonth).fill("").map((_: string, i) => (
               <div
