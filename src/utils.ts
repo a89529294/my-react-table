@@ -20,7 +20,8 @@ const rcrns = [
 
 export function getRandNumOfRooms() {
   const length = Math.ceil(Math.random() * rcrns.length);
-  return rcrns.slice(0, length);
+  //   return rcrns.slice(0, length);
+  return rcrns;
 }
 
 const wdays = ["日", "一", "二", "三", "四", "五", "六"];
