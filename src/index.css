@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --days-in-month: 28;
+  --number-of-rooms: 0;
+}
+
+.no-scrollbar {
+  overflow-y: scroll;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  /* WebKit */
+  width: 0;
+  height: 0;
+}
