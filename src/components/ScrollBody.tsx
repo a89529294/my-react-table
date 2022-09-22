@@ -21,7 +21,7 @@ function ScrollBody({
       className="overflow-auto flex cursor-grab sync-me no-scrollbar"
       ref={ref}>
       {/* left column displaying room names */}
-      <div className="w-[100px] shrink-0 sticky left-0 select-none">
+      <div className="w-[100px] shrink-0 sticky left-0 select-none border-r border-solid border-slate-300">
         {rooms.map((names, i) => (
           <RowHeader rc={names[0]} rn={names[1]} key={i} />
         ))}

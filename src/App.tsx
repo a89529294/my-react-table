@@ -56,7 +56,7 @@ function App() {
         <div
           className="select-none sticky top-0 z-10 flex overflow-auto no-scrollbar sync-me"
           ref={headerRef}>
-          <div className="w-[100px] h-[60px] bg-red-600 shrink-0 sticky left-0"></div>
+          <div className="w-[100px] h-[60px] bg-red-600 shrink-0 sticky left-0 border-r border-solid border-slate-300"></div>
           <div className="w-full grid grid-rows-2">
             <div className="flex justify-center items-center bg-red-600 text-white ">
               {generateYearAndMonthStr(firstDayOfMonth)}
