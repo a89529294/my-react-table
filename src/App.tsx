@@ -32,6 +32,30 @@ function App() {
     setRooms(newNumberOfRooms);
   }, [firstDayOfMonth]);
 
+  useEffect(() => {
+    function scrollSync(selector: string) {
+      let active: HTMLDivElement | null = null;
+      document.querySelectorAll(selector).forEach(function (element) {
+        element.addEventListener("mouseenter", function (e) {
+          active = e.target as HTMLDivElement;
+        });
+
+        element.addEventListener("scroll", function (e) {
+          if (e.target !== active) return;
+
+          document.querySelectorAll(selector).forEach(function (target) {
+            if (active === target || !active) return;
+
+            target.scrollTop = active.scrollTop;
+            target.scrollLeft = active.scrollLeft;
+          });
+        });
+      });
+    }
+
+    scrollSync(".sync-me");
+  });
+
   return (
     <ScrollSync>
       <div className="py-2 px-3">
@@ -50,7 +74,7 @@ function App() {
         <div className="isolate border border-solid border-slate-300 ">
           {/* header */}
           <ScrollSyncPane>
-            <div className="sticky top-0 z-10 flex overflow-auto no-scrollbar">
+            <div className="sticky top-0 z-10 flex overflow-auto no-scrollbar sync-me">
               <div className="w-[100px] h-[60px] bg-red-600 shrink-0 sticky left-0"></div>
               <div className="w-full grid grid-rows-2">
                 <div className="flex justify-center items-center bg-red-600 text-white ">
